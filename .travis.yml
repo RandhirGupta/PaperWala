@@ -1,0 +1,66 @@
+language: android
+sudo: required
+jdk: oraclejdk8
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
+
+
+env:
+  global:
+  - ANDROID_API = 27
+  - EMULATOR_API = 27
+  - ANDROID_BUILD_TOOLS = 27.0.3
+  - ADB_INSTALL_TIMEOUT = 5
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-$ANDROID_BUILD_TOOLS
+    - android-$ANDROID_API
+    - android-$EMULATOR_API_LEVEL
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-26
+    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
+    - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+  licenses:
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_c684be8710f9_key -iv $encrypted_c684be8710f9_iv
+   -in release_build/secrets.tar.enc -out secrets.tar -d
+- tar xvf secrets.tar
+- mv paperwala_app.jks app/paperwala_app.jks
+- chmod +x gradlew
+- "./gradlew dependencies || true"
+
+before_script:
+  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+script:
+- "./gradlew clean assembleRelease -PdisablePreDex --stacktrace"
+
+before_deploy:
+- cd app/build/outputs/apk/
+- mv app-release.apk PaperWala.apk
+deploy:
+  provider: releases
+  file: PaperWala.apk
+  skip_cleanup: true
+  on:
+    repo: RandhirGupta/PaperWala
+    tags: true
+    jdk: oraclejdk8
+    api_key:
+      secure: "debFzhNcYEspKIYPYUDajEtnt+kOhKTcyGS2aeYIfhTmf80MleI2zkekrGtXRnsBOvknnCkvMPSYaPl4gQNqymFW/NMagMXtVUdF+2fwN/rQaW9OiJoh5gvQwrMvIL9J69+gIiGl1h9v9xd8Xwc3+ZaSys6AlfR7zFcHhs8Gl4FXBrC297adHbVVCpitKU/7iSUH+KRObbYYke0MCz/xrf//v7kbhtVMiAJFAWQr3BsYoTy0VmZ8Kk8x6HJaaspz61qQitKKUQekT4nzwVpCvn8PSkbl1mzwNYOf1k1bwVbfwP9iJ9dVT9thOeXapXGtD3mrEDHzwX3BZm15LxiCXYOi+tgMzWlcqhleK65oKbnWeT9o8ttgRpRbgjAZ4EK/t4DoRax5Q90YCbMSXTStkqQjUjbdvsKcpSLC4HBiNXVqxQo/eZ3UZVLC4qXNdjJAtGsVE3R3n5RtextkObJVxjOtopgiUX3e1ldphVU1O9oAtMjiaMyUObMN+wCt0kWFM8neTuKcV4UpNrgngGB2eSo5TvDJlt3vZEujaCyXmg+18nx51MC86sJHFHDzGsLQgIMy40chN9oVCdI9ZwnwzNFVq2wy14e5o/hfxt912cO8PQziE747wsvIgF/IYBCmcnvDoLzBmLltk9sn3hVlDOnjCWYwybSM9bj4OKJW3TA="

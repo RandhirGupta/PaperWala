@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import org.gradle.internal.impldep.com.amazonaws.util.IOUtils.release
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 import java.util.Properties
 
@@ -22,6 +23,21 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+}
+
+var keystorePassword: String? = null
+var keyAlias: String? = null
+var keyPassword: String? = null
+
+val rootDir = project.rootDir
+val localProperties = File(rootDir, "local.properties")
+
+if (localProperties.exists()) {
+    val properties = Properties()
+    properties.load(localProperties.inputStream())
+    keystorePassword = properties.getProperty("keystore_password")
+    keyAlias = properties.getProperty("key_alias")
+    keyPassword = properties.getProperty("key_password")
 }
 
 android {
@@ -48,9 +64,14 @@ android {
         }
 
     }
+
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.create(signingConfig!!.setStorePassword(keystorePassword)
+                    .setKeyAlias(keyAlias)
+                    .setKeyPassword(keystorePassword).toString())
             proguardFiles("proguard-rules.pro")
         }
     }

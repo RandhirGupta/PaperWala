@@ -37,7 +37,7 @@ android:
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_c684be8710f9_key -iv $encrypted_c684be8710f9_iv
-   -in release_build/secrets.tar.enc -out secrets.tar -d
+   -in release_build/secret.tar.enc -out secret.tar -d
 - tar xvf secrets.tar
 - mv paperwala_keystore.jks app/paperwala_keystore.jks
 - chmod +x gradlew

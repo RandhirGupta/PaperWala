@@ -36,18 +36,18 @@ android:
   - google-gdk-license-.+
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_c684be8710f9_key -iv $encrypted_c684be8710f9_iv
-   -in release_build/secret.tar.enc -out secret.tar -d
+- openssl aes-256-cbc -K $encrypted_983228fd1323_key -iv $encrypted_983228fd1323_iv -in secret.tar.enc -out secret.tar -d
 - tar xvf secret.tar
 - mv paperwala_keystore.jks app/paperwala_keystore.jks
 - chmod +x gradlew
 - "./gradlew dependencies || true"
 
-#before_script:
-#  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
-#  - emulator -avd test -no-skin -no-audio -no-window &
-#  - android-wait-for-emulator
-#  - adb shell input keyevent 82 &
+before_script:
+  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+
 script:
 - "./gradlew clean assembleRelease -PdisablePreDex --stacktrace"
 

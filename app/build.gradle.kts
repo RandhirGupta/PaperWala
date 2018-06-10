@@ -25,21 +25,6 @@ plugins {
     kotlin("kapt")
 }
 
-var keystorePassword: String? = null
-var keyAlias: String? = null
-var keyPassword: String? = null
-
-val rootDir = project.rootDir
-val localProperties = File(rootDir, "local.properties")
-
-if (localProperties.exists()) {
-    val properties = Properties()
-    properties.load(localProperties.inputStream())
-    keystorePassword = properties.getProperty("keystore_password")
-    keyAlias = properties.getProperty("key_alias")
-    keyPassword = properties.getProperty("key_password")
-}
-
 android {
     compileSdkVersion(27)
     buildToolsVersion("27.0.3")
@@ -63,19 +48,25 @@ android {
             }
         }
 
-    }
-
-
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            signingConfig = signingConfigs.create(signingConfig!!.setStorePassword(keystorePassword)
-                    .setKeyAlias(keyAlias)
-                    .setKeyPassword(keystorePassword).toString())
-            proguardFiles("proguard-rules.pro")
+        signingConfigs {
+            create("release") {
+                storeFile = rootProject.file("local.properties")
+                storePassword = System.getenv("keystore_password")
+                keyAlias = System.getenv("key_alias")
+                keyPassword = System.getenv("key_password")
+            }
         }
-    }
 
+
+        buildTypes {
+            getByName("release") {
+                isMinifyEnabled = false
+                signingConfig = signingConfigs.getByName("release")
+                proguardFiles("proguard-rules.pro")
+            }
+        }
+
+    }
 }
 
 dependencies {

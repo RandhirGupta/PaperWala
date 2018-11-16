@@ -14,91 +14,56 @@
  * limitations under the License.
  */
 
-import org.gradle.internal.impldep.com.amazonaws.util.IOUtils.release
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-import java.util.Properties
-
-plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("android.extensions")
-    kotlin("kapt")
-}
+import com.android.builder.model.BuildType
 
 android {
-    compileSdkVersion(27)
-    buildToolsVersion("27.0.3")
-
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(27)
-
         applicationId = "com.cyborg.paperwala"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-        versionCode = 1
-        versionName = "1.0"
-
-        vectorDrawables {
-            useSupportLibrary = true
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                argument("room.schemaLocation", "$projectDir/schemas")
-            }
-        }
-
-        signingConfigs {
-            create("release") {
-                storeFile = rootProject.file("local.properties")
-                storePassword = System.getenv("keystore_password")
-                keyAlias = System.getenv("key_alias")
-                keyPassword = System.getenv("key_password")
-            }
-        }
-
-
-        buildTypes {
-            getByName("release") {
-                isMinifyEnabled = false
-                signingConfig = signingConfigs.getByName("release")
-                proguardFiles("proguard-rules.pro")
-            }
-        }
-
     }
 }
 
 dependencies {
-    implementation(PaperWalaConfig.Libs.appCompatV7)
-    implementation(PaperWalaConfig.Libs.recyclerView)
-    implementation(PaperWalaConfig.Libs.cardView)
-    implementation(PaperWalaConfig.Libs.designSupportLibs)
-    implementation(PaperWalaConfig.Libs.constraintLayout)
-    implementation(kotlin(PaperWalaConfig.KotlinModule.stdLib, PaperWalaConfig.kotlinVersion))
-    implementation(PaperWalaConfig.Libs.kotlinXCoroutineAndroid)
-    implementation(PaperWalaConfig.Libs.roomLibs)
+    implementation(PaperWalaConfig.Libs.Kotlin.jvm)
+    implementation(PaperWalaConfig.Libs.Kotlin.coroutineAndroid)
+
+    implementation(PaperWalaConfig.Libs.Support.appCompat)
+    implementation(PaperWalaConfig.Libs.Support.design)
+    implementation(PaperWalaConfig.Libs.Support.constraitLayout)
+    implementation(PaperWalaConfig.Libs.Support.cardView)
+    implementation(PaperWalaConfig.Libs.Support.multidex)
+    implementation(PaperWalaConfig.Libs.Support.annotations)
+    implementation(PaperWalaConfig.Libs.Support.materialDesign)
+    implementation(PaperWalaConfig.Libs.Support.recyclerView)
 
 
-    debugImplementation(PaperWalaConfig.Libs.debugDatabase)
+    implementation(PaperWalaConfig.Libs.Arch.lifeCycle)
+    implementation(PaperWalaConfig.Libs.Arch.room)
 
-    kapt(PaperWalaConfig.Libs.roomCompilerLibs)
+    implementation(PaperWalaConfig.Libs.Dagger.daggerAndroid)
+    implementation(PaperWalaConfig.Libs.Dagger.daggerAndroidSupport)
+
+    implementation(PaperWalaConfig.Libs.Misc.retrofit)
+    implementation(PaperWalaConfig.Libs.Misc.retrofitGson)
+    implementation(PaperWalaConfig.Libs.Misc.glide)
+    debugImplementation(PaperWalaConfig.Libs.Misc.dbDebug)
+
+    kapt(PaperWalaConfig.Libs.Dagger.daggerCompiler)
+    kapt(PaperWalaConfig.Libs.Dagger.daggerAndroidCompiler)
+    kapt(PaperWalaConfig.Libs.Arch.roomCompiler)
+
+    testImplementation(PaperWalaConfig.Libs.Test.junit)
+    testImplementation(PaperWalaConfig.Libs.Arch.roomTestHelper)
+    testImplementation(PaperWalaConfig.Libs.Test.Mockito.nhaarmanMock)
+    testImplementation(PaperWalaConfig.Libs.Misc.retrofitMock)
+
+    androidTestImplementation(PaperWalaConfig.Libs.AndroidTest.testRunner)
+    androidTestImplementation(PaperWalaConfig.Libs.AndroidTest.espressoCore)
 }
-
-repositories {
-    jcenter()
-    google()
-    mavenCentral()
-}
-
-kotlin {
-    experimental.coroutines = Coroutines.ENABLE
-}
-
-androidExtensions {
-    isExperimental = true
-}
-
-//apply {
-//    plugin("com.google.gms.google-services")
-//}

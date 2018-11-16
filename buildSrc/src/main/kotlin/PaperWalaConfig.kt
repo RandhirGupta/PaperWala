@@ -16,57 +16,87 @@
 
 object PaperWalaConfig {
 
-    const val kotlinVersion = "1.2.30"
-    const val kotlinSerializationVersion = "0.4"
-    const val kotlinXCoroutineVersion = "0.22.5"
+    private const val kotlinVersion = "1.2.70"
+    const val version = "1.0"
 
-    const val androidGradlePluginVersion = "3.0.0"
-    const val playPluginVersion = "3.2.0"
-
-    const val retrofitVersion = "2.4.0"
-    const val okhttpVersion = "3.10.0"
-    const val androidSupportLibsVersion = "27.0.1"
-    const val constraintLayoutVersion = "1.0.2"
-    const val archComponentVersion = "1.0.0"
-
-
-    object BuildPlugin {
-        val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:$kotlinSerializationVersion"
-        val androidPlugin = "com.android.tools.build:gradle:$androidGradlePluginVersion"
-        val googlePlayPlugin = "com.google.gms:google-services:$playPluginVersion"
+    object SdkVersion {
+        const val compile = 28
+        const val target = 28
+        const val min = 21
     }
 
-    object KotlinModule {
-        val stdLib = "stdlib"
-        val commonStdLib = "stdlib-common"
-        val jdk8Lib = "stdlib-jdk8"
-        val jsLib = "stdlib-js"
+
+    object Plugins {
+        const val androidPlugin = "com.android.tools.build:gradle:3.2.0"
+        const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 
     object Libs {
-        val serializationCommon = "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlinSerializationVersion"
-        val serializationJvm = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinSerializationVersion"
+        object Kotlin {
+            const val jvm = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+            const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.30.0"
+        }
 
-        val kotlinXCoroutineCommon = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$kotlinXCoroutineVersion"
-        val kotlinXCoroutineJvm = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinXCoroutineVersion"
-        val kotlinXCoroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinXCoroutineVersion"
+        object Support {
+            private const val buildToolVersion = "28.0.0"
 
-        val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
-        val retrofitGsonConv = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-        val retrofitCoroutineAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0"
-        val okhttpLoggerInterceptor = "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+            const val appCompat = "androidx.appcompat:appcompat:1.0.0-alpha1"
+            const val design = "com.android.support:design:$buildToolVersion"
+            const val constraitLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
+            const val cardView = "com.android.support:cardview-v7:$buildToolVersion"
+            const val multidex = "com.android.support:multidex:1.0.3"
+            const val annotations = "com.android.support:support-annotations:$buildToolVersion"
+            const val materialDesign = "com.google.android.material:material:1.0.0-alpha1"
+            const val recyclerView = "androidx.recyclerview:recyclerview:1.0.0-alpha1"
+        }
 
+        object Arch {
+            private const val lifeCycleVersion = "2.0.0-beta01"
+            private const val roomVersion = "2.0.0-beta01"
 
-        val appCompatV7 = "com.android.support:appcompat-v7:$androidSupportLibsVersion"
-        val recyclerView = "com.android.support:recyclerview-v7:$androidSupportLibsVersion"
-        val cardView = "com.android.support:cardview-v7:$androidSupportLibsVersion"
-        val constraintLayout = "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
-        val designSupportLibs = "com.android.support:design:$androidSupportLibsVersion"
+            const val lifeCycle = "androidx.lifecycle:lifecycle-extensions:$lifeCycleVersion"
+            const val lifeCycleTestHelper = "androidx.arch.core:core-testing:$lifeCycleVersion"
+            const val room = "androidx.room:room-runtime:$roomVersion"
+            const val roomCompiler = "androidx.room:room-compiler:$roomVersion" // use kapt for Kotlin
+            const val roomRxJavaSupport = "androidx.room:room-rxjava2:$roomVersion"
+            const val roomGuavaSupport = "androidx.room:room-guava:$roomVersion"
+            const val roomTestHelper = "androidx.room:room-testing:$roomVersion"
+        }
 
-        val roomLibs = "android.arch.persistence.room:runtime:$archComponentVersion"
-        val roomCompilerLibs = "android.arch.persistence.room:compiler:$archComponentVersion"
+        object Misc {
+            private const val retrofitVersion = "2.4.0"
+            private const val glideVersion = "4.8.0"
 
-        val debugDatabase = "com.amitshekhar.android:debug-db:1.0.3"
+            const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+            const val retrofitMock = "com.squareup.retrofit2:retrofit-mock:$retrofitVersion"
+            const val retrofitGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+            const val glide = "com.github.bumptech.glide:glide:$glideVersion"
+            const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
+            const val dbDebug = "com.amitshekhar.android:debug-db:1.0.4"
+        }
+
+        object Test {
+            const val junit = "junit:junit:4.12"
+
+            object Mockito {
+                const val nhaarmanMock = "com.nhaarman:mockito-kotlin:1.6.0"
+            }
+        }
+
+        object AndroidTest {
+            const val testRunner = "androidx.test:runner:1.1.0-alpha3"
+            const val espressoCore = "androidx.test.espresso:espresso-core:3.1.0-alpha3"
+        }
+
+        object Dagger {
+            private const val daggerVersion = "2.16"
+
+            const val daggerAndroid = "com.google.dagger:dagger-android:$daggerVersion"
+            const val daggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
+
+            const val daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+            const val daggerAndroidCompiler = "com.google.dagger:dagger-android-processor:$daggerVersion"
+        }
     }
+
 }

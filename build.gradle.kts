@@ -1,3 +1,7 @@
+import com.android.build.gradle.BaseExtension
+import org.jetbrains.kotlin.gradle.dsl.Coroutines
+import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
+
 /*
  * Copyright 2018 randhirgupta
  *
@@ -19,20 +23,13 @@
 
 buildscript {
     repositories {
-        jcenter()
-        maven { setUrl("https://kotlin.bintray.com/kotlinx") }
-        maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
-        maven { setUrl("https://kotlin.bintray.com/kotlin-js-wrappers") }
-        maven { setUrl("https://jitpack.io") }
         google()
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
-        classpath(PaperWalaConfig.BuildPlugin.androidPlugin)
-        classpath(PaperWalaConfig.BuildPlugin.kotlinPlugin)
-        classpath(PaperWalaConfig.BuildPlugin.kotlinSerialization)
-        classpath(PaperWalaConfig.BuildPlugin.googlePlayPlugin)
+        classpath(PaperWalaConfig.Plugins.androidPlugin)
+        classpath(PaperWalaConfig.Plugins.kotlinPlugin)
     }
 
 }
@@ -41,12 +38,34 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
-        maven { setUrl("https://kotlin.bintray.com/kotlinx") }
-        maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
-        maven { setUrl("https://kotlin.bintray.com/kotlin-js-wrappers") }
-        maven { setUrl("https://jitpack.io") }
         google()
-        mavenCentral()
+        jcenter()
+        mavenLocal()
+    }
+
+    if ((group as String).isNotEmpty()) {
+        conFigureAndroid()
+    }
+}
+
+fun Project.conFigureAndroid() {
+    apply(plugin = "com.android.application")
+    apply(plugin = "kotlin-android")
+    apply(plugin = "kotlin-android-extensions")
+    apply(plugin = "kotlin-kapt")
+
+    configure<BaseExtension> {
+        compileSdkVersion(PaperWalaConfig.SdkVersion.compile)
+
+        defaultConfig {
+            minSdkVersion(PaperWalaConfig.SdkVersion.min)
+            targetSdkVersion(PaperWalaConfig.SdkVersion.target)
+            versionCode = 1
+            versionName = PaperWalaConfig.version
+        }
+    }
+
+    configure<KotlinProjectExtension> {
+        experimental.coroutines = Coroutines.ENABLE
     }
 }

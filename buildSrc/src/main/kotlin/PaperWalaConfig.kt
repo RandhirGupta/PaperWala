@@ -66,10 +66,12 @@ object PaperWalaConfig {
         object Misc {
             private const val retrofitVersion = "2.4.0"
             private const val glideVersion = "4.8.0"
+            private const val okHttpVersion = "3.11.0"
 
             const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
             const val retrofitMock = "com.squareup.retrofit2:retrofit-mock:$retrofitVersion"
             const val retrofitGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+            const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
             const val glide = "com.github.bumptech.glide:glide:$glideVersion"
             const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
             const val dbDebug = "com.amitshekhar.android:debug-db:1.0.4"

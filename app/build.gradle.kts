@@ -52,6 +52,7 @@ dependencies {
 
     implementation(PaperWalaConfig.Libs.Misc.retrofit)
     implementation(PaperWalaConfig.Libs.Misc.retrofitGson)
+    implementation(PaperWalaConfig.Libs.Misc.okHttpInterceptor)
     implementation(PaperWalaConfig.Libs.Misc.glide)
     debugImplementation(PaperWalaConfig.Libs.Misc.dbDebug)
 

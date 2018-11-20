@@ -41,6 +41,3 @@ captures/
 
 # Keystore files
 *.jks
-
-# API keys file
-/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/keys.c

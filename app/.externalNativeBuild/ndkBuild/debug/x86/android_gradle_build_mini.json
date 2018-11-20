@@ -1,0 +1,17 @@
+{
+  "buildFiles": [
+    "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Android.mk",
+    "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/debug/lib clean"
+  ],
+  "libraries": {
+    "keys-debug-x86": {
+      "artifactName": "keys",
+      "buildCommand": "/Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/debug/lib /Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/debug/obj/local/x86/libkeys.so",
+      "abi": "x86",
+      "output": "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/debug/obj/local/x86/libkeys.so"
+    }
+  }
+}

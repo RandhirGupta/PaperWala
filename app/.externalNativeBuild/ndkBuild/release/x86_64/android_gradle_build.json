@@ -1,0 +1,33 @@
+{
+  "buildFiles": [
+    "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Android.mk",
+    "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/release/lib clean"
+  ],
+  "libraries": {
+    "keys-release-x86_64": {
+      "buildCommand": "/Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/release/lib /Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/release/obj/local/x86_64/libkeys.so",
+      "toolchain": "toolchain-x86_64",
+      "abi": "x86_64",
+      "artifactName": "keys",
+      "files": [
+        {
+          "src": "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/keys.c",
+          "flags": "-target x86_64-none-linux-android21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -gcc-toolchain /Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/darwin-x86_64 -fPIC -O2 -DNDEBUG -I/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security --sysroot /Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/sysroot -isystem /Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/sysroot/usr/include/x86_64-linux-android"
+        }
+      ],
+      "output": "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/release/obj/local/x86_64/libkeys.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-x86_64": {
+      "cCompilerExecutable": "/Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

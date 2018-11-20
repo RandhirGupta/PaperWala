@@ -43,4 +43,4 @@ captures/
 *.jks
 
 # API Key file
-*.c
+keys.c

@@ -28,6 +28,12 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
+
+    externalNativeBuild {
+        ndkBuild {
+            setPath("src/main/jni/Android.mk")
+        }
+    }
 }
 
 dependencies {

@@ -1,0 +1,12 @@
+<manifest package="me.angrybyte.goose"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+    </application>
+
+</manifest>

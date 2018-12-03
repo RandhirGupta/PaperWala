@@ -75,6 +75,7 @@ object PaperWalaConfig {
             const val glide = "com.github.bumptech.glide:glide:$glideVersion"
             const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
             const val dbDebug = "com.amitshekhar.android:debug-db:1.0.4"
+            const val jSoup = "org.jsoup:jsoup:1.10.3"
         }
 
         object Test {

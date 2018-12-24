@@ -34,6 +34,10 @@ android {
             setPath("src/main/jni/Android.mk")
         }
     }
+
+    dataBinding {
+        isEnabled = true
+    }
 }
 
 dependencies {

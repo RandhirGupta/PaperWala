@@ -14,18 +14,26 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.network
+package com.cyborg.paperwala.network.model
 
-import com.cyborg.paperwala.network.model.GoogleNewsResponse
-import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Query
+data class GoogleNewsResponse(
+        val articles: List<Article>,
+        val status: String,
+        val totalResults: Int
+)
 
-interface PaperWalaApiService {
+data class Article(
+        val author: String,
+        val content: String,
+        val description: String,
+        val publishedAt: String,
+        val source: Source,
+        val title: String,
+        val url: String,
+        val urlToImage: String
+)
 
-    @GET("https://newsapi.org/v2/top-headlines?")
-    fun fetchGoogleNews(@Query("sources") source: String, @Query("apiKey") apiKey: String): Observable<GoogleNewsResponse>
-
-    @GET("http://webhose.io/filterWebContent?")
-    fun fetchWebHoseNews(@Query("token") token: String, @Query(     "format") format: String, @Query("sort") sort: String): Observable<GoogleNewsResponse>
-}
+data class Source(
+        val id: String,
+        val name: String
+)

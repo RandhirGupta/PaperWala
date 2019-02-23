@@ -76,6 +76,9 @@ object PaperWalaConfig {
             const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
             const val dbDebug = "com.amitshekhar.android:debug-db:1.0.4"
             const val jSoup = "org.jsoup:jsoup:1.10.3"
+            const val retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava:2.1.0"
+            const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.0"
+            const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.4"
         }
 
         object Test {

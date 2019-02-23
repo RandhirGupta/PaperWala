@@ -64,6 +64,9 @@ dependencies {
     implementation(PaperWalaConfig.Libs.Misc.retrofitGson)
     implementation(PaperWalaConfig.Libs.Misc.okHttpInterceptor)
     implementation(PaperWalaConfig.Libs.Misc.glide)
+    implementation(PaperWalaConfig.Libs.Misc.retrofitAdapter)
+    implementation(PaperWalaConfig.Libs.Misc.rxAndroid)
+    implementation(PaperWalaConfig.Libs.Misc.rxJava)
     debugImplementation(PaperWalaConfig.Libs.Misc.dbDebug)
 
     kapt(PaperWalaConfig.Libs.Dagger.daggerCompiler)

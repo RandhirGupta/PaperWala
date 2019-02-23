@@ -18,8 +18,9 @@ package com.cyborg.paperwala.ui.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.cyborg.paperwala.network.model.GoogleNewsResponse
 
-class PaperWalaRecyclerAdapter : RecyclerView.Adapter<DataBindingViewHolder>() {
+class PaperWalaRecyclerAdapter(private var googleNewsList: ArrayList<GoogleNewsResponse>) : RecyclerView.Adapter<DataBindingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataBindingViewHolder {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

@@ -1,12 +1,5 @@
-package com.cyborg.paperwala.di
-
-import com.cyborg.paperwala.ui.activity.HomeActivity
-import com.cyborg.paperwala.di.scopes.ActivityScope
-import dagger.Module
-import dagger.android.ContributesAndroidInjector
-
 /*
- * Copyright 2018 randhirgupta
+ * Copyright 2019 randhirgupta
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +13,17 @@ import dagger.android.ContributesAndroidInjector
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@Module
-abstract class ActivityBindingModule {
 
-    @ActivityScope
-    @ContributesAndroidInjector
-    abstract fun bindMainActivity(): HomeActivity
+package com.cyborg.paperwala.ui.adapter
+
+import android.view.View
+
+class BasicViewHolder<V, VM>(private val itemView: V) : BindableViewHolder<VM>(itemView) where V : View, V : Bindable<VM> {
+
+    val view: View
+        get() = itemView
+
+   override fun bindViewModel(vm: VM) {
+        itemView.bindViewModel(vm)
+    }
 }

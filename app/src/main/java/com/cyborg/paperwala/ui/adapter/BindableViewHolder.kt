@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 randhirgupta
+ * Copyright 2019 randhirgupta
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,8 @@
 
 package com.cyborg.paperwala.ui.adapter
 
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
-object BindingAdapter {
 
-    @JvmStatic
-    @BindingAdapter("android:src")
-    fun setImageUrl(view: ImageView, url: String) {
-    }
-}
+abstract class BindableViewHolder<VM>(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<VM>

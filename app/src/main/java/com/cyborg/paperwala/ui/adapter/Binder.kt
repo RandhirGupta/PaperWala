@@ -16,14 +16,13 @@
 
 package com.cyborg.paperwala.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.View
+import io.reactivex.Observable
 
-class BasicViewHolder<V, VM>(private var itemView: V) : BindableViewHolder<VM>(itemView) where V : View, V : Bindable<VM> {
-
-    val view: View
-        get() = itemView
-
-    override fun bindViewModel(vm: VM) {
-        itemView.bindViewModel(vm)
+object Binder {
+    @SuppressLint("CheckResult")
+    fun bindVisibility(view: View, visibilityObservable: Observable<Boolean>) {
+        visibilityObservable.subscribe { aBoolean -> view.visibility = if (aBoolean == true) View.VISIBLE else View.INVISIBLE }
     }
 }

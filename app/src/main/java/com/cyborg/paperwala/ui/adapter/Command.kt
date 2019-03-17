@@ -16,14 +16,6 @@
 
 package com.cyborg.paperwala.ui.adapter
 
-import android.view.View
-
-class BasicViewHolder<V, VM>(private var itemView: V) : BindableViewHolder<VM>(itemView) where V : View, V : Bindable<VM> {
-
-    val view: View
-        get() = itemView
-
-    override fun bindViewModel(vm: VM) {
-        itemView.bindViewModel(vm)
-    }
+interface Command {
+    fun execute()
 }

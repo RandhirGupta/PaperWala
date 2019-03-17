@@ -17,13 +17,11 @@
 package com.cyborg.paperwala.ui.adapter
 
 import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.RecyclerView
+import com.cyborg.paperwala.BR
 
-class DataBindingViewHolder(private val binding: ViewDataBinding)
-    : RecyclerView.ViewHolder(binding.root) {
+class DataBindingViewHolder<VM>(private val binding: ViewDataBinding) : BindableViewHolder<VM>(binding.root) {
 
-    fun bindVariable(variableId: Int, obj: Any) {
-        binding.setVariable(variableId, obj)
-        binding.executePendingBindings()
+    override fun bindViewModel(vm: VM) {
+        binding.setVariable(BR._all, vm)
     }
 }

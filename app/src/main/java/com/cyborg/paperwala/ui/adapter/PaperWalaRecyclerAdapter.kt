@@ -18,19 +18,35 @@ package com.cyborg.paperwala.ui.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.cyborg.paperwala.network.model.GoogleNewsResponse
+import rx.Observable
+import rx.Subscription
 
-class PaperWalaRecyclerAdapter(private var googleNewsList: ArrayList<GoogleNewsResponse>) : RecyclerView.Adapter<DataBindingViewHolder>() {
+class PaperWalaRecyclerAdapter<VM>(viewModels: Observable<List<VM>>, private val mViewProvider: ViewProvider<BindableViewHolder<VM>>) : RecyclerView.Adapter<BindableViewHolder<VM>>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataBindingViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private var mViewModels: List<VM> = ArrayList()
+    private val mSubscription: Subscription
+
+    init {
+        mSubscription = viewModels.subscribe { vms ->
+            this.mViewModels = vms
+            this.notifyDataSetChanged()
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindableViewHolder<VM> {
+        return mViewProvider.createView()
+    }
+
+    override fun onBindViewHolder(holder: BindableViewHolder<VM>, position: Int) {
+        val vm = mViewModels[position]
+        holder.bindViewModel(vm)
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return mViewModels.size
     }
 
-    override fun onBindViewHolder(holder: DataBindingViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun close() {
+        mSubscription.unsubscribe()
     }
 }

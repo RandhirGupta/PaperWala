@@ -16,20 +16,15 @@
 
 package com.cyborg.paperwala.ui.fragment.newslist
 
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.cyborg.paperwala.databinding.NewsListFragmentLayoutBinding
-import com.cyborg.paperwala.di.Injectable
-import javax.inject.Inject
+import android.view.View
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
-class NewsListFragment : Fragment(), Injectable {
+class NewsListViewModel : ViewModel() {
 
-    @Inject
-    lateinit var mFactory: ViewModelProvider.Factory
+    val showLoader = MutableLiveData<Int>()
 
-    @Inject
-    lateinit var mLandingViewModel: NewsListViewModel
-
-    private lateinit var mBinding: NewsListFragmentLayoutBinding
-
+    init {
+        showLoader.value = View.GONE
+    }
 }

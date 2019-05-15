@@ -42,12 +42,10 @@ object PaperWalaConfig {
 
             const val appCompat = "androidx.appcompat:appcompat:1.0.0-alpha1"
             const val design = "com.android.support:design:$buildToolVersion"
-            const val constraitLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
-            const val cardView = "com.android.support:cardview-v7:$buildToolVersion"
+            const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
             const val multidex = "com.android.support:multidex:1.0.3"
             const val annotations = "com.android.support:support-annotations:$buildToolVersion"
             const val materialDesign = "com.google.android.material:material:1.0.0-alpha1"
-            const val recyclerView = "androidx.recyclerview:recyclerview:1.0.0-alpha1"
         }
 
         object Arch {

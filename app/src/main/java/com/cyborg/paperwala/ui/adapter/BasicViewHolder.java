@@ -14,16 +14,25 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.ui.adapter;
 
-import android.view.View
+import android.view.View;
 
-class BasicViewHolder<V, VM>(private var itemView: V) : BindableViewHolder<VM>(itemView) where V : View, V : Bindable<VM> {
+public class BasicViewHolder<V extends View & Bindable<VM>, VM> extends BindableViewHolder<VM> {
 
-    val view: View
-        get() = itemView
+    private final V itemView;
 
-    override fun bindViewModel(vm: VM) {
-        itemView.bindViewModel(vm)
+    public BasicViewHolder(V view) {
+        super(view);
+        itemView = view;
+    }
+
+    public View getView() {
+        return itemView;
+    }
+
+    @Override
+    public void bindViewModel(VM vm) {
+        itemView.bindViewModel(vm);
     }
 }

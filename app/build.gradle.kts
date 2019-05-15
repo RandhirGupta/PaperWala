@@ -15,6 +15,7 @@
  */
 
 import com.android.builder.model.BuildType
+import org.jetbrains.kotlin.resolve.calls.model.ResolvedCallArgument.DefaultArgument.arguments
 
 android {
     defaultConfig {
@@ -46,12 +47,10 @@ dependencies {
 
     implementation(PaperWalaConfig.Libs.Support.appCompat)
     implementation(PaperWalaConfig.Libs.Support.design)
-    implementation(PaperWalaConfig.Libs.Support.constraitLayout)
-    implementation(PaperWalaConfig.Libs.Support.cardView)
+    implementation(PaperWalaConfig.Libs.Support.constraintLayout)
     implementation(PaperWalaConfig.Libs.Support.multidex)
     implementation(PaperWalaConfig.Libs.Support.annotations)
     implementation(PaperWalaConfig.Libs.Support.materialDesign)
-    implementation(PaperWalaConfig.Libs.Support.recyclerView)
 
 
     implementation(PaperWalaConfig.Libs.Arch.lifeCycle)

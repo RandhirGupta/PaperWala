@@ -15,7 +15,7 @@
       "files": [
         {
           "src": "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni/keys.c",
-          "flags": "-target x86_64-none-linux-android21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -gcc-toolchain /Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/darwin-x86_64 -fPIC -O2 -DNDEBUG -I/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security --sysroot /Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/sysroot -isystem /Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/sysroot/usr/include/x86_64-linux-android"
+          "flags": "-target x86_64-none-linux-android21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/randhirkumargupta/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fPIC -O2 -DNDEBUG -I/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/src/main/jni -DANDROID -nostdinc++ -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
         }
       ],
       "output": "/Users/randhirkumargupta/Dashboard/Android/Self/Dashboard/Android/Kotlin/MyProjects/PaperWala/app/build/intermediates/ndkBuild/release/obj/local/x86_64/libkeys.so"

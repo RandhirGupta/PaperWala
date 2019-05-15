@@ -16,5 +16,8 @@
 
 package com.cyborg.paperwala.ui.fragment.newsdetails
 
-class NewsDetailsFragment {
+import androidx.fragment.app.Fragment
+import com.cyborg.paperwala.di.Injectable
+
+class NewsDetailsFragment : Fragment(), Injectable {
 }

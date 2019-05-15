@@ -63,6 +63,8 @@ before_script:
 script:
   - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
   - ./gradlew build assembleDebug
+  - ./gradlew clean assemble --stacktrace
+
 
 
 before_deploy:

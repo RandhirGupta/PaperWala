@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-import com.android.builder.model.BuildType
-import org.jetbrains.kotlin.resolve.calls.model.ResolvedCallArgument.DefaultArgument.arguments
-
 android {
     defaultConfig {
         applicationId = "com.cyborg.paperwala"

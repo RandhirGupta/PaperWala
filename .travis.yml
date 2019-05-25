@@ -39,8 +39,7 @@ android:
     - google-gdk-license-.+
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_8ee0cab177a5_key -iv $encrypted_8ee0cab177a5_iv
-  - -in paper_wala_keystore.jks.enc -out paper_wala_keystore.jks -d
+  - openssl aes-256-cbc -K $encrypted_8ee0cab177a5_key -iv $encrypted_8ee0cab177a5_iv -in paper_wala_keystore.jks.enc -out paper_wala_keystore.jks -d
   - yes | sdkmanager "platforms;android-28"
   - mkdir "$ANDROID_HOME/licenses" || true
   - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
@@ -50,7 +49,7 @@ before_install:
   - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
   #  - openssl aes-256-cbc -K $encrypted_983228fd1323_key -iv $encrypted_983228fd1323_iv -in release_build/secret.tar.enc -out secret.tar -d
   #  - tar xvf secret.tar
-  - mv paperwala_keystore.jks app/paperwala_keystore.jks
+  #  - mv paperwala_keystore.jks app/paperwala_keystore.jks
   - "./gradlew dependencies || true"
 
 before_script:

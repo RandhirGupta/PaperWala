@@ -39,6 +39,8 @@ android:
     - google-gdk-license-.+
 
 before_install:
+  - openssl aes-256-cbc -K $encrypted_8ee0cab177a5_key -iv $encrypted_8ee0cab177a5_iv
+  - -in paper_wala_keystore.jks.enc -out paper_wala_keystore.jks -d
   - yes | sdkmanager "platforms;android-28"
   - mkdir "$ANDROID_HOME/licenses" || true
   - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
@@ -46,8 +48,8 @@ before_install:
   - chmod +x gradlew
   - echo y | android update sdk --no-ui --all --filter "tool,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository"
   - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
-  - openssl aes-256-cbc -K $encrypted_983228fd1323_key -iv $encrypted_983228fd1323_iv -in release_build/secret.tar.enc -out secret.tar -d
-  - tar xvf secret.tar
+  #  - openssl aes-256-cbc -K $encrypted_983228fd1323_key -iv $encrypted_983228fd1323_iv -in release_build/secret.tar.enc -out secret.tar -d
+  #  - tar xvf secret.tar
   - mv paperwala_keystore.jks app/paperwala_keystore.jks
   - "./gradlew dependencies || true"
 
@@ -62,10 +64,8 @@ before_script:
 
 script:
   - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
-  - ./gradlew build assembleDebug
-  - ./gradlew clean assemble --stacktrace
-
-
+  - "./gradlew build assembleDebug"
+  - "./gradlew clean assemble --stacktrace"
 
 before_deploy:
   - cd app/build/outputs/apk/
@@ -80,4 +80,4 @@ deploy:
     tags: true
     jdk: oraclejdk8
     api_key:
-      secure: "debFzhNcYEspKIYPYUDajEtnt+kOhKTcyGS2aeYIfhTmf80MleI2zkekrGtXRnsBOvknnCkvMPSYaPl4gQNqymFW/NMagMXtVUdF+2fwN/rQaW9OiJoh5gvQwrMvIL9J69+gIiGl1h9v9xd8Xwc3+ZaSys6AlfR7zFcHhs8Gl4FXBrC297adHbVVCpitKU/7iSUH+KRObbYYke0MCz/xrf//v7kbhtVMiAJFAWQr3BsYoTy0VmZ8Kk8x6HJaaspz61qQitKKUQekT4nzwVpCvn8PSkbl1mzwNYOf1k1bwVbfwP9iJ9dVT9thOeXapXGtD3mrEDHzwX3BZm15LxiCXYOi+tgMzWlcqhleK65oKbnWeT9o8ttgRpRbgjAZ4EK/t4DoRax5Q90YCbMSXTStkqQjUjbdvsKcpSLC4HBiNXVqxQo/eZ3UZVLC4qXNdjJAtGsVE3R3n5RtextkObJVxjOtopgiUX3e1ldphVU1O9oAtMjiaMyUObMN+wCt0kWFM8neTuKcV4UpNrgngGB2eSo5TvDJlt3vZEujaCyXmg+18nx51MC86sJHFHDzGsLQgIMy40chN9oVCdI9ZwnwzNFVq2wy14e5o/hfxt912cO8PQziE747wsvIgF/IYBCmcnvDoLzBmLltk9sn3hVlDOnjCWYwybSM9bj4OKJW3TA="
+      secure: debFzhNcYEspKIYPYUDajEtnt+kOhKTcyGS2aeYIfhTmf80MleI2zkekrGtXRnsBOvknnCkvMPSYaPl4gQNqymFW/NMagMXtVUdF+2fwN/rQaW9OiJoh5gvQwrMvIL9J69+gIiGl1h9v9xd8Xwc3+ZaSys6AlfR7zFcHhs8Gl4FXBrC297adHbVVCpitKU/7iSUH+KRObbYYke0MCz/xrf//v7kbhtVMiAJFAWQr3BsYoTy0VmZ8Kk8x6HJaaspz61qQitKKUQekT4nzwVpCvn8PSkbl1mzwNYOf1k1bwVbfwP9iJ9dVT9thOeXapXGtD3mrEDHzwX3BZm15LxiCXYOi+tgMzWlcqhleK65oKbnWeT9o8ttgRpRbgjAZ4EK/t4DoRax5Q90YCbMSXTStkqQjUjbdvsKcpSLC4HBiNXVqxQo/eZ3UZVLC4qXNdjJAtGsVE3R3n5RtextkObJVxjOtopgiUX3e1ldphVU1O9oAtMjiaMyUObMN+wCt0kWFM8neTuKcV4UpNrgngGB2eSo5TvDJlt3vZEujaCyXmg+18nx51MC86sJHFHDzGsLQgIMy40chN9oVCdI9ZwnwzNFVq2wy14e5o/hfxt912cO8PQziE747wsvIgF/IYBCmcnvDoLzBmLltk9sn3hVlDOnjCWYwybSM9bj4OKJW3TA=

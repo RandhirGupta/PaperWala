@@ -62,9 +62,9 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
-  - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
-  - "./gradlew build assembleDebug"
-  - "./gradlew clean assemble --stacktrace"
+  - ./gradlew clean build connectedCheck -PdisablePreDex --stacktrace
+  - ./gradlew build assembleDebug
+  - ./gradlew clean assemble --stacktrace
 
 before_deploy:
   - cd app/build/outputs/apk/

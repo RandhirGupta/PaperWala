@@ -46,7 +46,7 @@ before_install:
   - chmod +x gradlew
   - echo y | android update sdk --no-ui --all --filter "tool,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository"
   - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
-  - openssl aes-256-cbc -K $encrypted_8ee0cab177a5_key -iv $encrypted_8ee0cab177a5_iv -in paper_wala_keystore.jks.enc -out paper_wala_keystore.jks -d
+  - openssl aes-256-cbc -K $encrypted_8ee0cab177a5_key -iv $encrypted_8ee0cab177a5_iv -in ./paper_wala_keystore.jks.enc -out ./paper_wala_keystore.jks -d
   - "./gradlew dependencies || true"
 
 before_script:

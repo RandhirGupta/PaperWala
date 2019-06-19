@@ -37,7 +37,7 @@ jobs:
     - stage: test
       script: "./gradlew cleanBuildCache clean build testDebugUnitTest"
     - stage: deploy
-      script: "./gradlew cleanBuildCache clean :PaperWala:build :PaperWala:testDebugUnitTest :PaperWala:install :PaperWala:bintrayUpload"
+      script: "./gradlew cleanBuildCache clean :PaperWala:build :PaperWala:install :PaperWala:bintrayUpload"
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock

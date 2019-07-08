@@ -53,16 +53,19 @@ dependencies {
     implementation(PaperWalaConfig.Libs.Arch.lifeCycle)
     implementation(PaperWalaConfig.Libs.Arch.room)
 
+    implementation(PaperWalaConfig.Libs.Rx.rxJava)
+    implementation(PaperWalaConfig.Libs.Rx.rxKotlin)
+    implementation(PaperWalaConfig.Libs.Rx.rxAndroid)
+
     implementation(PaperWalaConfig.Libs.Dagger.daggerAndroid)
     implementation(PaperWalaConfig.Libs.Dagger.daggerAndroidSupport)
 
     implementation(PaperWalaConfig.Libs.Misc.retrofit)
     implementation(PaperWalaConfig.Libs.Misc.retrofitGson)
+    implementation(PaperWalaConfig.Libs.Misc.rxRetrofitAdater)
     implementation(PaperWalaConfig.Libs.Misc.okHttpInterceptor)
     implementation(PaperWalaConfig.Libs.Misc.glide)
     implementation(PaperWalaConfig.Libs.Misc.retrofitAdapter)
-    implementation(PaperWalaConfig.Libs.Misc.rxAndroid)
-    implementation(PaperWalaConfig.Libs.Misc.rxJava)
     debugImplementation(PaperWalaConfig.Libs.Misc.dbDebug)
 
     kapt(PaperWalaConfig.Libs.Dagger.daggerCompiler)

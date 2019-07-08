@@ -16,14 +16,13 @@
 
 package com.cyborg.paperwala.di
 
-import com.cyborg.paperwala.network.LiveDataCallAdapterFactory
 import com.cyborg.paperwala.network.PaperWalaApiService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.CallAdapter
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -50,7 +49,7 @@ object RepositoryModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun provideRetrofit(okHttpClient: OkHttpClient, callAdapter: CallAdapter.Factory): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient, callAdapter: RxJavaCallAdapterFactory): Retrofit {
         return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(callAdapter)
@@ -62,8 +61,8 @@ object RepositoryModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun providesCallAdapterFactory(): CallAdapter.Factory {
-        return LiveDataCallAdapterFactory()
+    fun providesCallAdapterFactory(): RxJavaCallAdapterFactory {
+        return RxJavaCallAdapterFactory.create()
     }
 
     @Provides

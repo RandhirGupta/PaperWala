@@ -69,14 +69,13 @@ object PaperWalaConfig {
             const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
             const val retrofitMock = "com.squareup.retrofit2:retrofit-mock:$retrofitVersion"
             const val retrofitGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+            const val rxRetrofitAdater = "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
             const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
             const val glide = "com.github.bumptech.glide:glide:$glideVersion"
             const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
             const val dbDebug = "com.amitshekhar.android:debug-db:1.0.4"
             const val jSoup = "org.jsoup:jsoup:1.10.3"
             const val retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava:2.1.0"
-            const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.0"
-            const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.4"
         }
 
         object Test {
@@ -100,6 +99,16 @@ object PaperWalaConfig {
 
             const val daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
             const val daggerAndroidCompiler = "com.google.dagger:dagger-android-processor:$daggerVersion"
+        }
+
+        object Rx {
+            private const val rxJavaVersion = "2.2.6"
+            private const val rxKotlinVersion = "2.3.0"
+            private const val rxAndroidVersion = "2.1.1"
+
+            const val rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+            const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+            const val rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
         }
     }
 

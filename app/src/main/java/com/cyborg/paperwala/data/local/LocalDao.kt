@@ -14,18 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di
+package com.cyborg.paperwala.data.local
 
-import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
+import androidx.room.Dao
 
-@Module
-class RepositoryModule {
-
-    @Singleton
-    @Provides
-    fun provideArticlesRepository() : String? {
-        return  null
-    }
-}
+@Dao
+interface LocalDao

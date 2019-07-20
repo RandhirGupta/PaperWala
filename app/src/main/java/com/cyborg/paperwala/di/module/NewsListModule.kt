@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di
+package com.cyborg.paperwala.di.module
 
+import androidx.lifecycle.ViewModel
+import com.cyborg.paperwala.di.ViewModelKey
+import com.cyborg.paperwala.ui.fragment.newslist.NewsListViewModel
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
+import dagger.multibindings.IntoMap
 
 @Module
-class RepositoryModule {
+interface NewsListModule {
 
-    @Singleton
-    @Provides
-    fun provideArticlesRepository() : String? {
-        return  null
-    }
+    @Binds
+    @IntoMap
+    @ViewModelKey(NewsListViewModel::class)
+    fun bindNewsListViewModel(newsListViewModel: NewsListViewModel): ViewModel
 }

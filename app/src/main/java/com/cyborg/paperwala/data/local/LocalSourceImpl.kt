@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di
+package com.cyborg.paperwala.data.local
 
-import dagger.Module
-import dagger.Provides
+import io.reactivex.Flowable
 import javax.inject.Singleton
 
-@Module
-class RepositoryModule {
+@Singleton
+class LocalSourceImpl(/*private val localDatabase: LocalDatabase,*/ private val localSharedPrefs: LocalSharedPrefs) :
+        LocalSource {
 
-    @Singleton
-    @Provides
-    fun provideArticlesRepository() : String? {
-        return  null
+    override fun getNews(entryId: Long?): Flowable<List<String>> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

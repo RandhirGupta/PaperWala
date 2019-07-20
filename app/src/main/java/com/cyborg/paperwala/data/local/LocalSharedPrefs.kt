@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.activity
+package com.cyborg.paperwala.data.local
 
-import android.os.Bundle
+import android.content.Context
+import android.content.SharedPreferences
 import com.cyborg.paperwala.R
-import com.cyborg.paperwala.ui.base.BaseActivityDagger
 
-class HomeActivity : BaseActivityDagger() {
+class LocalSharedPrefs(context: Context) {
 
-    companion object {
-        init {
-            System.loadLibrary("keys")
-        }
+    private var editor: SharedPreferences.Editor? = null
+    private val settings: SharedPreferences? = context.getSharedPreferences(context.getString(R.string.app_name).toUpperCase(), Context.MODE_PRIVATE)
+
+    fun set(name: String, defaultValue: Long) {
+        editor = settings?.edit()
+        editor?.putLong(name, defaultValue)
+        editor?.apply()
     }
 
-    override fun getLayout(): Int = R.layout.activity_main
-
-    external fun getWebHoseNewsApiKeys(): String
-
-    external fun getGoogleNewsApiKeys(): String
+    fun get(name: String, defaultValue: Long): Long? = settings?.getLong(name, defaultValue)
 }

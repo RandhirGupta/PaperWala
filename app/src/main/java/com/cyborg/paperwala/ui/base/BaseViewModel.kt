@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di
+package com.cyborg.paperwala.ui.base
 
-import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
+import androidx.lifecycle.ViewModel
+import io.reactivex.disposables.CompositeDisposable
 
-@Module
-class RepositoryModule {
+open class BaseViewModel : ViewModel() {
 
-    @Singleton
-    @Provides
-    fun provideArticlesRepository() : String? {
-        return  null
+    protected val compositeDisposable: CompositeDisposable = CompositeDisposable()
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.clear()
     }
+
 }

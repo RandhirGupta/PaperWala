@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di
+package com.cyborg.paperwala.di.module
 
+import androidx.lifecycle.ViewModelProvider
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
 
 @Module
-class RepositoryModule {
+interface ViewModelModule {
 
-    @Singleton
-    @Provides
-    fun provideArticlesRepository() : String? {
-        return  null
-    }
+    @Binds
+    fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }

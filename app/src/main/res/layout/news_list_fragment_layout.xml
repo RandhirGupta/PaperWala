@@ -14,47 +14,42 @@
   ~ limitations under the License.
   -->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto">-->
 
-    <data>
+<!--<data>-->
 
-        <import type="android.view.View" />
+<!--<import type="android.view.View" />-->
 
-        <variable
-            name="viewModel"
-            type="com.cyborg.paperwala.ui.fragment.newslist.NewsListViewModel" />
-    </data>
+<!--<variable--><!--name="viewModel"--><!--type="com.cyborg.paperwala.ui.fragment.newslist.NewsListViewModel" />--><!--</data>-->
 
-    <LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/paperwalaNewsListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <RelativeLayout
+        android:id="@+id/loading_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:animateLayoutChanges="true"
+        android:background="@android:color/darker_gray">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/paperwalaNewsListRecyclerView"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/loading_view_pb"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-        <RelativeLayout
-            android:id="@+id/loading_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:animateLayoutChanges="true"
-            android:background="@android:color/darker_gray"
-            android:visibility="@{viewModel.showLoader}">
+            android:indeterminate="true" />
+    </RelativeLayout>
 
-            <ProgressBar
-                android:id="@+id/loading_view_pb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:indeterminate="true" />
-        </RelativeLayout>
-
-    </LinearLayout>
-</layout>
+</LinearLayout><!--</layout>-->

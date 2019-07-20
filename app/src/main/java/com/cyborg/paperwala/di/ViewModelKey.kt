@@ -16,16 +16,16 @@
 
 package com.cyborg.paperwala.di
 
-import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
+import androidx.lifecycle.ViewModel
+import dagger.MapKey
+import kotlin.reflect.KClass
 
-@Module
-class RepositoryModule {
-
-    @Singleton
-    @Provides
-    fun provideArticlesRepository() : String? {
-        return  null
-    }
-}
+@MustBeDocumented
+@Target(
+        AnnotationTarget.FUNCTION,
+        AnnotationTarget.PROPERTY_GETTER,
+        AnnotationTarget.PROPERTY_SETTER
+)
+@Retention(AnnotationRetention.RUNTIME)
+@MapKey
+internal annotation class ViewModelKey(val value: KClass<out ViewModel>)

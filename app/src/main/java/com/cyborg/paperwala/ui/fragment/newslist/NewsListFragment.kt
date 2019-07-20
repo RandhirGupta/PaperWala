@@ -16,20 +16,25 @@
 
 package com.cyborg.paperwala.ui.fragment.newslist
 
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.cyborg.paperwala.databinding.NewsListFragmentLayoutBinding
-import com.cyborg.paperwala.di.Injectable
+import androidx.lifecycle.ViewModelProviders
+import com.cyborg.paperwala.ui.base.BaseFragmentDagger
 import javax.inject.Inject
 
-class NewsListFragment : Fragment(), Injectable {
+class NewsListFragment : BaseFragmentDagger() {
 
     @Inject
-    lateinit var mFactory: ViewModelProvider.Factory
+    lateinit var mViewModelFactory: ViewModelProvider.Factory
 
+    private val mNewsListViewModel: NewsListViewModel by lazy {
+        ViewModelProviders.of(this, mViewModelFactory).get(NewsListViewModel::class.java)
+    }
     @Inject
     lateinit var mLandingViewModel: NewsListViewModel
 
-    private lateinit var mBinding: NewsListFragmentLayoutBinding
+//    private lateinit var mBinding: NewsListFragmentLayoutBinding
 
+    override fun getLayout(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

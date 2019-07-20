@@ -16,16 +16,30 @@
 
 package com.cyborg.paperwala.di
 
+import android.content.Context
+import com.cyborg.paperwala.data.local.LocalSharedPrefs
+import com.cyborg.paperwala.data.local.LocalSource
+import com.cyborg.paperwala.data.local.LocalSourceImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class RepositoryModule {
+class LocalModule {
+
+//    @Provides
+//    fun provideDatabase(context: Context): LocalDatabase {
+//        return Room.databaseBuilder(context, LocalDatabase::class.java, "${context.getString(R.string.app_name)}.db").build()
+//    }
+
+    @Provides
+    fun provideSharedPrefs(context: Context): LocalSharedPrefs {
+        return LocalSharedPrefs(context)
+    }
 
     @Singleton
     @Provides
-    fun provideArticlesRepository() : String? {
-        return  null
+    fun provideLocalSource(/*localDatabase: LocalDatabase, */localSharedPrefs: LocalSharedPrefs): LocalSource {
+        return LocalSourceImpl(/*localDatabase,*/ localSharedPrefs)
     }
 }

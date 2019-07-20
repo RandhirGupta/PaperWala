@@ -18,9 +18,10 @@ package com.cyborg.paperwala.ui.fragment.newslist
 
 import android.view.View
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.cyborg.paperwala.ui.base.BaseViewModel
+import javax.inject.Inject
 
-class NewsListViewModel : ViewModel() {
+class NewsListViewModel @Inject constructor() : BaseViewModel() {
 
     val showLoader = MutableLiveData<Int>()
 

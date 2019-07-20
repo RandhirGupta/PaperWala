@@ -16,4 +16,5 @@
 
 <resources>
     <string name="app_name">PaperWala</string>
+    <string name="please_wait">Please wait…</string>
 </resources>

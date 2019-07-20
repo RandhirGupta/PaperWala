@@ -16,8 +16,11 @@
 
 package com.cyborg.paperwala.ui.fragment.newsdetails
 
-import androidx.fragment.app.Fragment
-import com.cyborg.paperwala.di.Injectable
+import com.cyborg.paperwala.ui.base.BaseFragmentDagger
 
-class NewsDetailsFragment : Fragment(), Injectable {
+class NewsDetailsFragment : BaseFragmentDagger() {
+
+    override fun getLayout(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

@@ -16,26 +16,21 @@
 
 package com.cyborg.paperwala
 
-import android.app.Activity
-import android.app.Application
-import com.cyborg.paperwala.di.AppInjector
+import com.cyborg.paperwala.di.*
+import com.cyborg.paperwala.di.component.DaggerApplicationComponent
 import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
+import dagger.android.support.DaggerApplication
 
-class PaperWalaApplication : Application(), HasActivityInjector {
+class PaperWalaApplication : DaggerApplication() {
 
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-
-    override fun onCreate() {
-        super.onCreate()
-
-        AppInjector.init(this)
-    }
-
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return dispatchingAndroidInjector
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerApplicationComponent.builder()
+                .application(this)
+                .applicationModule(ApplicationModule(applicationContext))
+                .localModule(LocalModule())
+                .networkModule(NetworkModule())
+                .repositoryModule(RepositoryModule())
+                .useCaseModule(UseCaseModule())
+                .build()
     }
 }

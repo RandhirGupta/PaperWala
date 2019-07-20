@@ -17,7 +17,7 @@
 package com.cyborg.paperwala.di
 
 import androidx.lifecycle.ViewModelProvider
-import com.cyborg.paperwala.factory.ViewModelFactory
+import com.cyborg.paperwala.di.module.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 
@@ -26,5 +26,4 @@ abstract class ViewModelModule {
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
-
 }

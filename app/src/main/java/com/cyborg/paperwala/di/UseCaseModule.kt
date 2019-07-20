@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 randhirgupta
+ * Copyright 2019 randhirgupta
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,5 +19,4 @@ package com.cyborg.paperwala.di
 import dagger.Module
 
 @Module
-abstract class FragmentBindingModule {
-}
+class UseCaseModule

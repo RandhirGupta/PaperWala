@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 randhirgupta
+ * Copyright 2019 randhirgupta
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,11 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di
+package com.cyborg.paperwala.data.local
 
-import android.content.Context
-import com.cyborg.paperwala.PaperWalaApplication
-import dagger.Binds
-import dagger.Module
+import io.reactivex.Flowable
 
-@Module
-abstract class AppModule {
+interface LocalSource {
 
-    @Binds
-    abstract fun bindContext(application: PaperWalaApplication): Context
+    fun getNews(entryId: Long?): Flowable<List<String>>
 }

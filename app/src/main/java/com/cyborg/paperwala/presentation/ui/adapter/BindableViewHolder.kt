@@ -14,23 +14,10 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.activity
+package com.cyborg.paperwala.presentation.ui.adapter
 
-import android.os.Bundle
-import com.cyborg.paperwala.R
-import com.cyborg.paperwala.ui.base.BaseActivityDagger
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
-class HomeActivity : BaseActivityDagger() {
 
-    companion object {
-        init {
-            System.loadLibrary("keys")
-        }
-    }
-
-    override fun getLayout(): Int = R.layout.activity_main
-
-    external fun getWebHoseNewsApiKeys(): String
-
-    external fun getGoogleNewsApiKeys(): String
-}
+abstract class BindableViewHolder<VM>(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<VM>

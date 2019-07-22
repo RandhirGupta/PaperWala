@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.presentation.ui.base
 
-import android.annotation.SuppressLint
-import android.view.View
-import io.reactivex.Observable
+import androidx.lifecycle.ViewModel
+import io.reactivex.disposables.CompositeDisposable
 
-object Binder {
-    @SuppressLint("CheckResult")
-    fun bindVisibility(view: View, visibilityObservable: Observable<Boolean>) {
-        visibilityObservable.subscribe { aBoolean -> view.visibility = if (aBoolean == true) View.VISIBLE else View.INVISIBLE }
+open class BaseViewModel : ViewModel() {
+
+    protected val compositeDisposable: CompositeDisposable = CompositeDisposable()
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.clear()
     }
+
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 randhirgupta
+ * Copyright 2018 randhirgupta
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.fragment.newsdetails
+package com.cyborg.paperwala.presentation.ui.adapter
 
-import com.cyborg.paperwala.ui.base.BaseFragmentDagger
+import androidx.databinding.ViewDataBinding
+import com.cyborg.paperwala.BR
 
-class NewsDetailsFragment : BaseFragmentDagger() {
+class DataBindingViewHolder<VM>(private val binding: ViewDataBinding) : BindableViewHolder<VM>(binding.root) {
 
-    override fun getLayout(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun bindViewModel(vm: VM) {
+        binding.setVariable(BR._all, vm)
     }
 }

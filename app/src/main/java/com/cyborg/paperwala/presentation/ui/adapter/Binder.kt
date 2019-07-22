@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di.builder
+package com.cyborg.paperwala.presentation.ui.adapter
 
-import com.cyborg.paperwala.presentation.ui.main.HomeActivity
-import dagger.Module
-import dagger.android.ContributesAndroidInjector
+import android.annotation.SuppressLint
+import android.view.View
+import io.reactivex.Observable
 
-@Module
-interface MainActivityBuilder {
-
-    @ContributesAndroidInjector
-    fun contributeHomeActivity(): HomeActivity
+object Binder {
+    @SuppressLint("CheckResult")
+    fun bindVisibility(view: View, visibilityObservable: Observable<Boolean>) {
+        visibilityObservable.subscribe { aBoolean -> view.visibility = if (aBoolean == true) View.VISIBLE else View.INVISIBLE }
+    }
 }

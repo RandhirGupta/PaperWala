@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.presentation.ui.adapter
 
 import android.content.Context
 import android.view.View

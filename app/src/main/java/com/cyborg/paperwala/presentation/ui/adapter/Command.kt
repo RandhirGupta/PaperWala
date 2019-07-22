@@ -14,18 +14,8 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.fragment.newslist
+package com.cyborg.paperwala.presentation.ui.adapter
 
-import android.view.View
-import androidx.lifecycle.MutableLiveData
-import com.cyborg.paperwala.ui.base.BaseViewModel
-import javax.inject.Inject
-
-class NewsListViewModel @Inject constructor() : BaseViewModel() {
-
-    val showLoader = MutableLiveData<Int>()
-
-    init {
-        showLoader.value = View.GONE
-    }
+interface Command {
+    fun execute()
 }

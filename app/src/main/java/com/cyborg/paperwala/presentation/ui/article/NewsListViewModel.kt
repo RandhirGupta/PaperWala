@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.di.builder
+package com.cyborg.paperwala.presentation.ui.article
 
-import com.cyborg.paperwala.presentation.ui.main.HomeActivity
-import dagger.Module
-import dagger.android.ContributesAndroidInjector
+import android.view.View
+import androidx.lifecycle.MutableLiveData
+import com.cyborg.paperwala.presentation.ui.base.BaseViewModel
+import javax.inject.Inject
 
-@Module
-interface MainActivityBuilder {
+class NewsListViewModel @Inject constructor() : BaseViewModel() {
 
-    @ContributesAndroidInjector
-    fun contributeHomeActivity(): HomeActivity
+    val showLoader = MutableLiveData<Int>()
+
+    init {
+        showLoader.value = View.GONE
+    }
 }

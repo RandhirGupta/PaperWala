@@ -17,7 +17,7 @@
 package com.cyborg.paperwala.di.builder
 
 import com.cyborg.paperwala.di.module.NewsListModule
-import com.cyborg.paperwala.ui.fragment.newslist.NewsListFragment
+import com.cyborg.paperwala.presentation.ui.article.NewsListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

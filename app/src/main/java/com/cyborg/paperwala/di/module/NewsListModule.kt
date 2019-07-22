@@ -18,7 +18,7 @@ package com.cyborg.paperwala.di.module
 
 import androidx.lifecycle.ViewModel
 import com.cyborg.paperwala.di.ViewModelKey
-import com.cyborg.paperwala.ui.fragment.newslist.NewsListViewModel
+import com.cyborg.paperwala.presentation.ui.article.NewsListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

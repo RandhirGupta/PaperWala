@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.presentation.ui.story
 
+import com.cyborg.paperwala.presentation.ui.base.BaseFragmentDagger
 
-interface ViewProvider<V> {
-    fun createView(): V
+class NewsDetailsFragment : BaseFragmentDagger() {
+
+    override fun getLayout(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

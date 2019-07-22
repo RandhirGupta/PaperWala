@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.fragment.newslist
+package com.cyborg.paperwala.presentation.ui.article
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.cyborg.paperwala.ui.base.BaseFragmentDagger
+import com.cyborg.paperwala.presentation.ui.base.BaseFragmentDagger
 import javax.inject.Inject
 
 class NewsListFragment : BaseFragmentDagger() {

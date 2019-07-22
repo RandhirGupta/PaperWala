@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.presentation.common
 
-interface Bindable<VM> {
-    fun bindViewModel(vm: VM)
+import android.view.View
+
+interface ItemClickListener<T> {
+    fun onItemClick(v: View, item: T)
 }

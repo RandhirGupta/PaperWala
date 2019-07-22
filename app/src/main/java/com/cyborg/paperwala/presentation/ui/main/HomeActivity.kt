@@ -14,18 +14,22 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.base
+package com.cyborg.paperwala.presentation.ui.main
 
-import androidx.lifecycle.ViewModel
-import io.reactivex.disposables.CompositeDisposable
+import com.cyborg.paperwala.R
+import com.cyborg.paperwala.presentation.ui.base.BaseActivityDagger
 
-open class BaseViewModel : ViewModel() {
+class HomeActivity : BaseActivityDagger() {
 
-    protected val compositeDisposable: CompositeDisposable = CompositeDisposable()
-
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.clear()
+    companion object {
+        init {
+            System.loadLibrary("keys")
+        }
     }
 
+    override fun getLayout(): Int = R.layout.activity_main
+
+    external fun getWebHoseNewsApiKeys(): String
+
+    external fun getGoogleNewsApiKeys(): String
 }

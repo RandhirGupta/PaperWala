@@ -14,8 +14,25 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.presentation.ui.adapter;
 
-interface Command {
-    fun execute()
+import android.view.View;
+
+public class BasicViewHolder<V extends View & Bindable<VM>, VM> extends BindableViewHolder<VM> {
+
+    private final V itemView;
+
+    public BasicViewHolder(V view) {
+        super(view);
+        itemView = view;
+    }
+
+    public View getView() {
+        return itemView;
+    }
+
+    @Override
+    public void bindViewModel(VM vm) {
+        itemView.bindViewModel(vm);
+    }
 }

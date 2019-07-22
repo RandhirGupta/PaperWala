@@ -14,10 +14,22 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.presentation.common
 
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
+sealed class State<T> {
 
+    class Loading<T> : State<T>()
+    data class Error<T>(val errorMessage: String?, val error: Throwable) : State<T>()
+    data class Success<T>(var data: T) : State<T>()
 
-abstract class BindableViewHolder<VM>(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<VM>
+    companion object {
+        fun <T> loading(): State<T> =
+                Loading()
+
+        fun <T> error(errorMessage: String, error: Throwable): State<T> =
+                Error(errorMessage, error)
+
+        fun <T> success(data: T): State<T> =
+                Success(data)
+    }
+}

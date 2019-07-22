@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.base
+package com.cyborg.paperwala.presentation.ui.base
 
-import android.app.Activity
-import android.os.Bundle
-import dagger.android.AndroidInjection
+import android.content.Context
+import androidx.fragment.app.Fragment
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-abstract class BaseActivityDagger : BaseActivity(), HasActivityInjector {
+abstract class BaseFragmentDagger : BaseFragment(), HasSupportFragmentInjector {
 
     @Inject
-    lateinit var appCompatActivityInjector: DispatchingAndroidInjector<Activity>
+    lateinit var childFragmentInjector: DispatchingAndroidInjector<Fragment>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState)
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return appCompatActivityInjector
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return childFragmentInjector
     }
 }

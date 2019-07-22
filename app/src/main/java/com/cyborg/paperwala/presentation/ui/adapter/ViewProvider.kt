@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 randhirgupta
+ * Copyright 2019 randhirgupta
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.adapter
+package com.cyborg.paperwala.presentation.ui.adapter
 
-import androidx.databinding.ViewDataBinding
-import com.cyborg.paperwala.BR
 
-class DataBindingViewHolder<VM>(private val binding: ViewDataBinding) : BindableViewHolder<VM>(binding.root) {
-
-    override fun bindViewModel(vm: VM) {
-        binding.setVariable(BR._all, vm)
-    }
+interface ViewProvider<V> {
+    fun createView(): V
 }

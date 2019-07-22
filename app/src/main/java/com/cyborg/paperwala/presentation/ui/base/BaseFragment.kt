@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.ui.base
+package com.cyborg.paperwala.presentation.ui.base
 
 import android.content.DialogInterface
 import android.os.Bundle

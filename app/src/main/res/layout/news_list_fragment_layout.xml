@@ -20,7 +20,7 @@
 
 <!--<import type="android.view.View" />-->
 
-<!--<variable--><!--name="viewModel"--><!--type="com.cyborg.paperwala.ui.fragment.newslist.NewsListViewModel" />--><!--</data>-->
+<!--<variable--><!--name="viewModel"--><!--type="com.cyborg.paperwala.presentation.ui.article.NewsListViewModel" />--><!--</data>-->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

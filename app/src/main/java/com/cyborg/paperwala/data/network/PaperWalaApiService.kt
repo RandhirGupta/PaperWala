@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.network
+package com.cyborg.paperwala.data.network
 
-import com.cyborg.paperwala.network.model.GoogleNewsResponse
+import com.cyborg.paperwala.data.network.model.GoogleNewsResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

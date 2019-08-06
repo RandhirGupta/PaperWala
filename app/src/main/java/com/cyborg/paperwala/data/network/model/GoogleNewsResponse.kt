@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.network.model
+package com.cyborg.paperwala.data.network.model
 
 data class GoogleNewsResponse(
         val articles: List<Article>,

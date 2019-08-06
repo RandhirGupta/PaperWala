@@ -16,7 +16,7 @@
 
 package com.cyborg.paperwala.di
 
-import com.cyborg.paperwala.network.PaperWalaApiService
+import com.cyborg.paperwala.data.network.PaperWalaApiService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

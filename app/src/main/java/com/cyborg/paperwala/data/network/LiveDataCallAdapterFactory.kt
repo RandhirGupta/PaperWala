@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 randhirgupta
+ * Copyright 2019 randhirgupta
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyborg.paperwala.network
+package com.cyborg.paperwala.data.network
 
 import androidx.lifecycle.LiveData
 import retrofit2.CallAdapter
